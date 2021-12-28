@@ -2,7 +2,9 @@ import AppRouter from "./AppRouter";
 
 const App = () => {
   return (
-    <AppRouter />
+    <main className="flex h-screen">
+      <AppRouter />
+    </main>
   );
 }
 

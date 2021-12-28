@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply font-bold py-2 px-4 rounded m-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary-700;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-500 text-white;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-secondary-700;
+  }
+
+  .btn-success {
+    @apply bg-success-500 text-white;
+  }
+
+  .btn-success:hover {
+    @apply bg-success-700;
+  }
+
+  .btn-neutral {
+    @apply bg-neutral-500 text-white;
+  }
+
+  .btn-neutral:hover {
+    @apply bg-neutral-700;
+  }
+
+  .btn-warning {
+    @apply bg-warning-500 text-white;
+  }
+
+  .btn-warning:hover {
+    @apply bg-warning-700;
+  }
+
+  .btn-danger {
+    @apply bg-danger-500 text-white;
+  }
+
+  .btn-danger:hover {
+    @apply bg-danger-700;
+  }
+
+  .form-label {
+    @apply m-2 text-lg;
+  }
+
+  .form-input {
+    @apply ml-2 px-2 py-1 border-gray-300 border-2 rounded-md;
+  }
+
+  .modal {
+    @apply w-fit h-fit p-5 mt-24 mx-auto shadow-2xl border-gray-100 border-2 rounded-lg;
+  }
+}
