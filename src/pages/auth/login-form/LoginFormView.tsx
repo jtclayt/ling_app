@@ -1,4 +1,9 @@
 import { FC } from "react";
+import Button from "../../../components/buttons/Button";
+import ButtonBar from "../../../components/buttons/ButtonBar";
+import Form from "../../../components/forms/Form";
+import FormInput from "../../../components/forms/FormInputs";
+import Modal from "../../../components/modal/Modal";
 import { LoginData } from "../Auth.types";
 
 interface LoginFormViewProps {
@@ -10,35 +15,27 @@ interface LoginFormViewProps {
 
 const LoginFormView: FC<LoginFormViewProps> = ({ loginData, setLoginData, switchToRegister, handleLogin }) => {
   return (
-    <section className="modal">
-      <form>
-      <h1 className="text-center font-bold text-3xl">Login form</h1>
-      <section className="flex flex-col justify-center">
-        <label className="form-label">
-          Username
-          <input
-            className="form-input"
-            type="text"
-            onChange={(element) => { setLoginData({...loginData, userName: element.currentTarget.value}) }} />
-        </label>
-        <label className="form-label">
-          Password
-          <input
-            className="form-input"
-            type="password"
-            onChange={(element) => { setLoginData({...loginData, password: element.currentTarget.value}) }} />
-        </label>
-      </section>
-      <section className="flex justify-center">
-        <button className="btn btn-success" onClick={ handleLogin }>
-          Submit
-        </button>
-        <button className="btn btn-primary" onClick={ switchToRegister }>
-          Switch to Register
-        </button>
-      </section>
-    </form>
-    </section>
+    <Modal>
+      <Form onSubmit={ handleLogin }>
+        <FormInput
+          label="Username"
+          type="text"
+          onChange={ (event) => { setLoginData({...loginData, userName: event.currentTarget.value}) } } />
+        <FormInput
+          label="Password"
+          type="password"
+          onChange={ (event) => { setLoginData({...loginData, password: event.currentTarget.value}) } } />
+
+        <ButtonBar alignment="center">
+          <Button variant="success">Submit</Button>
+          <Button
+            variant="primary"
+            onClick={ switchToRegister }>
+            Switch to Login
+          </Button>
+        </ButtonBar>
+      </Form>
+    </Modal>
   );
 };
 

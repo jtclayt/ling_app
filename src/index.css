@@ -54,16 +54,4 @@
   .btn-danger:hover {
     @apply bg-danger-700;
   }
-
-  .form-label {
-    @apply m-2 text-lg;
-  }
-
-  .form-input {
-    @apply ml-2 px-2 py-1 border-gray-300 border-2 rounded-md;
-  }
-
-  .modal {
-    @apply w-fit h-fit p-5 mt-24 mx-auto shadow-2xl border-gray-100 border-2 rounded-lg;
-  }
 }

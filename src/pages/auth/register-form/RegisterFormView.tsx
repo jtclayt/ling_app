@@ -1,4 +1,9 @@
 import { FC, FormEvent } from "react";
+import Button from "../../../components/buttons/Button";
+import ButtonBar from "../../../components/buttons/ButtonBar";
+import Form from "../../../components/forms/Form";
+import FormInput from "../../../components/forms/FormInputs";
+import Modal from "../../../components/modal/Modal";
 import { RegisterData } from "../Auth.types";
 
 interface RegisterFormViewProps {
@@ -10,56 +15,39 @@ interface RegisterFormViewProps {
 
 const RegisterFormView: FC<RegisterFormViewProps> = ({ registerData, setRegisterData, switchToLogin, handleRegister }) => {
   return (
-    <section className="modal">
-      <form onSubmit={ handleRegister }>
-      <h1 className="text-center font-bold text-3xl">Register form</h1>
-      <section className="flex flex-col items-center">
-        <label className="form-label">
-          Username
-          <input
-            className="form-input"
-            type="text"
-            onChange={(element) => { setRegisterData({...registerData, userName: element.currentTarget.value}) }} />
-        </label>
-        <label className="form-label">
-          First Name
-          <input
-            className="form-input"
-            type="text"
-            onChange={(element) => { setRegisterData({...registerData, firstName: element.currentTarget.value}) }} />
-        </label>
-        <label className="form-label">
-          Last Name
-          <input
-            className="form-input"
-            type="text"
-            onChange={(element) => { setRegisterData({...registerData, lastName: element.currentTarget.value}) }} />
-        </label>
-        <label className="form-label">
-          Password
-          <input
-            className="form-input"
-            type="text"
-            onChange={(element) => { setRegisterData({...registerData, password: element.currentTarget.value}) }} />
-        </label>
-        <label className="form-label">
-          Confirm Password
-          <input
-            className="form-input"
-            type="text"
-            onChange={(element) => { setRegisterData({...registerData, checkPassword: element.currentTarget.value}) }} />
-        </label>
-      </section>
-      <section className="flex justify-center">
-        <button className="btn btn-success">
-          Submit
-        </button>
-        <button className="btn btn-primary" onClick={ switchToLogin }>
-          Switch to Login
-        </button>
-      </section>
-    </form>
-    </section>
+    <Modal>
+      <Form onSubmit={ handleRegister }>
+        <FormInput
+          label="Username"
+          type="text"
+          onChange={ (event) => { setRegisterData({...registerData, userName: event.currentTarget.value}) } } />
+        <FormInput
+          label="First Name"
+          type="text"
+          onChange={ (event) => { setRegisterData({...registerData, firstName: event.currentTarget.value}) } } />
+        <FormInput
+          label="Last Name"
+          type="text"
+          onChange={ (event) => { setRegisterData({...registerData, lastName: event.currentTarget.value}) } } />
+        <FormInput
+          label="Password"
+          type="password"
+          onChange={ (event) => { setRegisterData({...registerData, password: event.currentTarget.value}) } } />
+        <FormInput
+          label="Confirm Password"
+          type="password"
+          onChange={ (event) => { setRegisterData({...registerData, checkPassword: event.currentTarget.value}) } } />
+
+        <ButtonBar alignment="center">
+          <Button variant="success">Submit</Button>
+          <Button
+            variant="primary"
+            onClick={ switchToLogin }>
+            Switch to Login
+          </Button>
+        </ButtonBar>
+      </Form>
+    </Modal>
   );
 };
 
