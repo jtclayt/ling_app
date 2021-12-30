@@ -1,13 +1,15 @@
 import { FC, FormEventHandler } from "react";
 
 interface FormProps {
-  onSubmit: FormEventHandler<HTMLFormElement>;
+  title?: string;
+  onSubmit?: FormEventHandler<HTMLFormElement>;
 }
 
-const Form: FC<FormProps> = ({children, onSubmit}) => {
+const Form: FC<FormProps> = ({children, title, onSubmit}) => {
   return (
     <form onSubmit={ onSubmit }>
-      <section className="flex flex-col justify-center">
+      <h1 className="text-center text-3xl font-bold">{ title }</h1>
+      <section className={`flex flex-col w-fit`}>
         { children }
       </section>
     </form>

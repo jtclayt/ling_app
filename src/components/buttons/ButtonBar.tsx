@@ -1,12 +1,13 @@
 import { FC } from "react";
+import { FlexJustify } from "../../config/style-options";
 
 interface ButtonBarProps {
-  alignment: "center" | "start" | "end" | "evenly";
+  justifyAlignment: FlexJustify;
 }
 
-const ButtonBar: FC<ButtonBarProps> = ({ children, alignment }) => {
+const ButtonBar: FC<ButtonBarProps> = ({ children, justifyAlignment }) => {
   return (
-    <section className={`flex justify-${alignment}`}>
+    <section className={`p-5 flex ${justifyAlignment}`}>
       { children }
     </section>
   )
