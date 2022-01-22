@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 import { LoginData, RegisterData } from "../Auth.types";
 import LoginFormView from "./LoginFormView";
 
@@ -13,7 +13,9 @@ const LoginForm: FC<LoginFormProps> = ({ switchToRegister, handleSubmit })  => {
     password: ""
   });
 
-  const handleLogin = () => {
+  /** Function for preventing default form behavior and submitting the data. */
+  const handleLogin = (event: FormEvent) => {
+    event.preventDefault();
     handleSubmit(loginData);
   }
 
