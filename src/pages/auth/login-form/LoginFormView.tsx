@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, FormEvent } from "react";
 import Button, { ButtonVariants } from "../../../components/buttons/Button";
 import ButtonBar from "../../../components/buttons/ButtonBar";
 import Form from "../../../components/forms/Form";
@@ -10,7 +10,7 @@ import { LoginData } from "../Auth.types";
 interface LoginFormViewProps {
   loginData: LoginData;
   setLoginData: (newData: LoginData) => void;
-  handleLogin: () => void;
+  handleLogin: (event: FormEvent) => void;
   switchToRegister: () => void;
 }
 
